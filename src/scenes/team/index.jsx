@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
 import Header from "../../components/Header";
+import { DeleteOutline } from "@mui/icons-material";
 
 const Team = () => {
   const theme = useTheme();
@@ -64,6 +65,21 @@ const Team = () => {
         );
       },
     },
+    {
+      field: "action",
+      headerName: "Action",
+      width: 150,
+      renderCell: (params) => {
+        return (
+          <>
+            <DeleteOutline
+              className="userListDelete"
+              //onClick={() => handleDelete(params.row.id)}
+            />
+          </>
+        );
+      },
+    }
   ];
 
   return (

@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockHistory } from "../../data/mockData";
 import Header from "../../components/Header";
+import { DeleteOutline } from "@mui/icons-material";
 
 const Blog = () => {
   const theme = useTheme();
@@ -33,6 +34,21 @@ const Blog = () => {
       headerName: "Chuyên mục",
       flex: 1,
     },
+    {
+      field: "action",
+      headerName: "Action",
+      width: 150,
+      renderCell: (params) => {
+        return (
+          <>
+            <DeleteOutline
+              className="blogListDelete"
+              //onClick={() => handleDelete(params.row.id)}
+            />
+          </>
+        );
+      },
+    }
   ];
 
   return (

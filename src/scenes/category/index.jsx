@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockCategory } from "../../data/mockData";
 import Header from "../../components/Header";
-
+import { DeleteOutline } from "@mui/icons-material";
 const Category = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -28,6 +28,21 @@ const Category = () => {
       align: "left",
       flex: 1,
     },
+    {
+      field: "action",
+      headerName: "Action",
+      width: 150,
+      renderCell: (params) => {
+        return (
+          <>
+            <DeleteOutline
+              className="catListDelete"
+              //onClick={() => handleDelete(params.row.id)}
+            />
+          </>
+        );
+      },
+    }
   ];
 
   return (
